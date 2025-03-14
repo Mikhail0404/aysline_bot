@@ -35,8 +35,6 @@ options.identity.username = process.env.username;
 options.identity.password = process.env.tokenBot;
 options.channels[0] = process.env.channels;
 
-console.log(process.env);
-
 socket.emit("add-user", {
   token: process.env.tokenDonate, //donation alerts токен
   type: "minor",
