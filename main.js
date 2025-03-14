@@ -17,7 +17,7 @@ const socket = io.connect(
   }
 );
 
-const port = 80;
+const port = 10000;
 const host = "localhost";
 
 var options = {
