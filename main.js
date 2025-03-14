@@ -2,7 +2,9 @@ require("dotenv").config();
 //twitch
 const tmi = require("tmi.js");
 const fs = require("fs");
+const express = require("express");
 //
+const app = express();
 const io = require("socket.io-client");
 const socket = io.connect(
   "wss://socket.donationalerts.ru:443",
@@ -14,6 +16,9 @@ const socket = io.connect(
     reconnectionAttempts: Infinity,
   }
 );
+
+const port = 80;
+const host = "localhost";
 
 var options = {
   options: {
@@ -75,4 +80,8 @@ socket.on("donation", function (msg) {
         (donate.message ? " - " + donate.message : " *молча*")
     );
   }
+});
+
+app.listen(port, host, () => {
+  console.log(`Server running on http://${host}:${port}`);
 });
